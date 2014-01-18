@@ -5,13 +5,21 @@
 // assumptions.  Too lazy.
 #include "_app/sdl.h"
 
-st::app::app() { }
+st::app::app() { 
+    m_st_media = new st::media();
+}
 
-st::app::~app() { }
+st::app::~app() {
+    delete m_st_media;
+}
 
 st::app* st::app::build_app ( st::st_app_type app_type ) {
     if ( app_type == st::SDL ) {
         return new st::_app::sdl();
     }
     return NULL;
+}
+
+st::media* st::app::media() {
+    return m_st_media;
 }

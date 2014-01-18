@@ -2,6 +2,7 @@
 #define _ST_APP_SDL_H_
 
 #include "../app.h"
+#include "SDL/SDL.h"
 
 namespace st {
     namespace _app {
@@ -13,6 +14,9 @@ namespace st {
             protected:
                 bool init();
                 bool finish();
+
+                // This will probably be a bad decision!
+                SDL_Surface* m_screen;
         };
     }
 }
