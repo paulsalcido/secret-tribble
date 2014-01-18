@@ -16,8 +16,10 @@ bool st::_app::sdl::init() {
     // Let's be honest, right now I don't care. # COPIED!!!
     hello = SDL_LoadBMP(media()->get_image_media_path("hello.bmp").c_str());
     SDL_BlitSurface(hello, NULL, m_screen, NULL);
+    // Lazy!
     SDL_Flip( m_screen );
     SDL_Delay( 2000 );
+    SDL_FreeSurface(hello);
     return true;
 }
 
