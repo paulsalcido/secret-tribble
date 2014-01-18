@@ -10,7 +10,6 @@ namespace st {
                 sdl();
                 ~sdl();
 
-
             protected:
                 bool init();
                 bool finish();
