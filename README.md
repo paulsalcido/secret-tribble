@@ -15,5 +15,9 @@ What I've done so far:
 * _The Cabin in the Woods_ is running in the background.  There is nothing
   that you can't succeed at once you enter the Whedonverse.  WHEDON IS MY
   MASTER NOW.
+* After some more wine and a bit of violin practice, I went ahead and added
+  libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev, which should 
+  allow me to get deeper into the tutorial (and refactor that stuff to be
+  relatively OO).
 
 Let's get started.
