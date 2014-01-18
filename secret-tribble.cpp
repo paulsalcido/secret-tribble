@@ -1,8 +1,8 @@
 #include <iostream>
-#include <SDL/SDL.h>
+#include "ST/app.h"
 
 int main(int argc, char *argv[]) {
-    SDL_Init( SDL_INIT_EVERYTHING );
-    SDL_Quit();
+    st::app *main_app = st::app::build_app();
+    delete main_app;
     return 0;
 }
