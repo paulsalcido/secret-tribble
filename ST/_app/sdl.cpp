@@ -21,8 +21,8 @@ bool st::_app::sdl::finish() {
     return true;
 }
 
-bool st::_app::sdl::initialize_screen(std::string caption) {
-    m_screen = SDL_SetVideoMode(640, 480, 32, SDL_SWSURFACE );
+bool st::_app::sdl::initialize_screen(std::string caption, int width, int height, int bpp) {
+    m_screen = SDL_SetVideoMode(width, height, bpp, SDL_SWSURFACE );
     if ( m_screen == NULL ) {
         return false;
     }
@@ -46,6 +46,7 @@ void st::_app::sdl::run() {
     flip();
     delay( 2000 );
     free_surface(hello);
+    finish();
 }
 
 SDL_Surface* st::_app::sdl::_load_image(std::string name, bool optimize, bool sdl_image) {
