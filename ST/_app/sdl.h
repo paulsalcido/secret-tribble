@@ -6,6 +6,28 @@
 
 namespace st {
     namespace _app {
+        class sdl_color_map {
+            public:
+                sdl_color_map(int r = 0, int g = 0, int b = 0): m_r(r), m_g(g), m_b(b) { }
+                ~sdl_color_map() { }
+
+                int r() { return m_r; }
+                int g() { return m_g; }
+                int b() { return m_b; }
+
+                Uint32 color_map(SDL_Surface* surface) {
+                    return SDL_MapRGB(surface->format, r(), g(), b());
+                }
+
+                void set_color_key(SDL_Surface* surface) {
+                    SDL_SetColorKey(surface, SDL_SRCCOLORKEY, color_map(surface));
+                }
+            protected:
+                int m_r;
+                int m_g;
+                int m_b;
+        };
+
         class sdl: public app {
             public: 
                 sdl();
@@ -21,12 +43,12 @@ namespace st {
                 void apply_surface(int x, int y, SDL_Surface* source, SDL_Surface* destination = NULL);
                 void free_surface(SDL_Surface* surface);
 
-                SDL_Surface* load_image(std::string name, bool optimize = true);
-                SDL_Surface* load_bitmap(std::string name, bool optimize = true);
+                SDL_Surface* load_image(std::string name, bool optimize = true, sdl_color_map* color_map = NULL);
+                SDL_Surface* load_bitmap(std::string name, bool optimize = true, sdl_color_map* color_map = NULL);
             protected:
                 bool init();
                 bool finish();
-                SDL_Surface* _load_image(std::string name, bool optimize = true, bool sdl_image = true);
+                SDL_Surface* _load_image(std::string name, bool optimize, bool sdl_image, sdl_color_map*);
 
                 // This will probably be a bad decision!
                 SDL_Surface* m_screen;

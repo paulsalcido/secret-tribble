@@ -48,7 +48,7 @@ void st::_app::sdl::run() {
     free_surface(hello);
 }
 
-SDL_Surface* st::_app::sdl::_load_image(std::string name, bool optimize, bool sdl_image) {
+SDL_Surface* st::_app::sdl::_load_image(std::string name, bool optimize, bool sdl_image, st::_app::sdl_color_map* color_map) {
     SDL_Surface* optimized_image = NULL;
     SDL_Surface* loaded_image = sdl_image ?
         IMG_Load( media()->get_image_media_path(name).c_str() ) :
@@ -61,15 +61,18 @@ SDL_Surface* st::_app::sdl::_load_image(std::string name, bool optimize, bool sd
     } else {
         std::cerr << "Warning: could not load image " << name << std::endl;
     }
+    if ( optimized_image != NULL and color_map != NULL ) {
+        color_map->set_color_key(optimized_image);
+    }
     return optimized_image;
 }
 
-SDL_Surface* st::_app::sdl::load_bitmap(std::string name, bool optimize) {
-    return _load_image(name, optimize, false);
+SDL_Surface* st::_app::sdl::load_bitmap(std::string name, bool optimize, st::_app::sdl_color_map* color_map) {
+    return _load_image(name, optimize, false, color_map);
 }
 
-SDL_Surface* st::_app::sdl::load_image(std::string name, bool optimize) {
-    return _load_image(name, optimize, true);
+SDL_Surface* st::_app::sdl::load_image(std::string name, bool optimize, st::_app::sdl_color_map* color_map) {
+    return _load_image(name, optimize, true, color_map);
 }
 
 void st::_app::sdl::apply_surface(int x, int y, SDL_Surface* source, SDL_Surface* destination) {
