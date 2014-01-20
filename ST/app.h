@@ -16,6 +16,8 @@ namespace st {
             static st::app* build_app( st_app_type app_type = SDL );
             st::media* media();
 
+            virtual void run() = 0;
+
         protected:
             st::media* m_st_media;
     };

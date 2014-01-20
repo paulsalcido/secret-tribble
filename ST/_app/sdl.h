@@ -11,6 +11,11 @@ namespace st {
                 sdl();
                 ~sdl();
 
+                void run();
+                void flip();
+                void initialize_screen();
+                void apply_surface(int x, int y, SDL_Surface* source, SDL_Surface* destination = NULL);
+                SDL_Surface* load_image(std::string name, bool optimize = true);
             protected:
                 bool init();
                 bool finish();
