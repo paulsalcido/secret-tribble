@@ -1,7 +1,5 @@
 #include "_app/lesson3.h"
 
-#include "SDL/SDL_image.h"
-
 st::_app::lesson3::lesson3() { }
 st::_app::lesson3::~lesson3() { }
 

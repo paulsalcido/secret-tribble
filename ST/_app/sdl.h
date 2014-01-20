@@ -14,7 +14,10 @@ namespace st {
                 void run();
                 bool flip();
                 void delay(int del = 2000);
-                bool initialize_screen(std::string caption = "no name");
+                bool initialize_screen(std::string caption = "no name",
+                        int width = 640,
+                        int height = 480,
+                        int bpp = 32);
                 void apply_surface(int x, int y, SDL_Surface* source, SDL_Surface* destination = NULL);
                 void free_surface(SDL_Surface* surface);
 
