@@ -21,3 +21,15 @@ What I've done so far:
   relatively OO).
 
 Let's get started.
+
+Some additional things that I'm learning:
+
+* Need to init my screen before I start loading the images.
+* _Princess Mononoke_ does not make a good background movie while programming.
+
+Starting with lesson three, I've also installed the following:
+
+* libsdl-image1.2-dev
+* libsdl-mixer1.2-dev
+
+Oddly, turned out they were already installed...  Moving on.

@@ -1,14 +1,14 @@
-#ifndef __ST_APP_LESSON2__
-#define __ST_APP_LESSON2__
+#ifndef __ST_LESSON3_H__
+#define __ST_LESSON3_H__
 
 #include "./sdl.h"
 
 namespace st {
     namespace _app {
-        class lesson2: public st::_app::sdl {
+        class lesson3 : public sdl {
             public:
-                lesson2();
-                ~lesson2();
+                lesson3();
+                ~lesson3();
 
                 void run();
             protected:
