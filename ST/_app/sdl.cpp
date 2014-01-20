@@ -10,13 +10,11 @@ st::_app::sdl::~sdl() {
 
 bool st::_app::sdl::init() {
     SDL_Init ( SDL_INIT_EVERYTHING );
-
     return true;
 }
 
 bool st::_app::sdl::finish() {
     SDL_Quit();
-    // Let's be honest, right now I don't care.
     return true;
 }
 
