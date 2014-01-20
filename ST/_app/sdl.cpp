@@ -46,7 +46,6 @@ void st::_app::sdl::run() {
     flip();
     delay( 2000 );
     free_surface(hello);
-    finish();
 }
 
 SDL_Surface* st::_app::sdl::_load_image(std::string name, bool optimize, bool sdl_image) {

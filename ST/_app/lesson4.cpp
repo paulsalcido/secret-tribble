@@ -23,5 +23,4 @@ void st::_app::lesson4::run() {
         }
     }
     free_surface( image );
-    finish();
 }
