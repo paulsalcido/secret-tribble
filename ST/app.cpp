@@ -5,6 +5,7 @@
 // assumptions.  Too lazy.
 #include "_app/sdl.h"
 #include "_app/lesson2.h"
+#include "_app/lesson3.h"
 
 st::app::app() { 
     m_st_media = new st::media();
@@ -20,6 +21,8 @@ st::app* st::app::build_app ( std::string name ) {
         return new st::_app::sdl();
     } else if ( name == "lesson2" ) {
         return new st::_app::lesson2();
+    } else if ( name == "lesson3" ) {
+        return new st::_app::lesson3();
     }
     return NULL;
 }
