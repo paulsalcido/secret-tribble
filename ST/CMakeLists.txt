@@ -12,6 +12,7 @@ add_library(ST
     _app/lesson3.cpp
     _app/lesson4.cpp
     _app/lesson5.cpp
+    _app/lesson6.cpp
     media.cpp)
 
 target_link_libraries(ST ${SDL_LIBRARIES} SDL_image)

@@ -75,14 +75,18 @@ SDL_Surface* st::_app::sdl::load_image(std::string name, bool optimize, st::_app
     return _load_image(name, optimize, true, color_map);
 }
 
-void st::_app::sdl::apply_surface(int x, int y, SDL_Surface* source, SDL_Surface* destination) {
+void st::_app::sdl::apply_surface(int x, int y, SDL_Surface* source, SDL_Surface* destination, SDL_Rect* rect) {
     SDL_Rect offset;
     offset.x = x;
     offset.y = y;
     if ( destination == NULL ) {
         destination = m_screen;
     }
-    SDL_BlitSurface(source, NULL, destination, &offset);
+    SDL_BlitSurface(source, rect, destination, &offset);
+}
+
+void st::_app::sdl::apply_surface_clip(int x, int y, SDL_Surface* source, SDL_Rect* rect) {
+    apply_surface(x, y, source, m_screen, rect);
 }
 
 void st::_app::sdl::delay( int del ) {
