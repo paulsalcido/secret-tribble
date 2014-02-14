@@ -40,9 +40,22 @@ namespace st {
                         int width = 640,
                         int height = 480,
                         int bpp = 32);
-                void apply_surface(int x, int y, SDL_Surface* source, SDL_Surface* destination = NULL);
+                void apply_surface_clip(
+                        int x,
+                        int y,
+                        SDL_Surface* source,
+                        SDL_Rect* clip = NULL);
+                void apply_surface(
+                        int x,
+                        int y,
+                        SDL_Surface* source,
+                        SDL_Surface* destination = NULL,
+                        SDL_Rect* clip = NULL);
                 void free_surface(SDL_Surface* surface);
 
+                // TODO: Hide all of this SDL information behind internal classes.
+                // I'll do it in big changesets later, why not?  Let's just get this
+                // done.
                 SDL_Surface* load_image(std::string name, bool optimize = true, sdl_color_map* color_map = NULL);
                 SDL_Surface* load_bitmap(std::string name, bool optimize = true, sdl_color_map* color_map = NULL);
             protected:
