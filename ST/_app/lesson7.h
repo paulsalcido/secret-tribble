@@ -12,6 +12,7 @@ namespace st {
 
                 void run();
             protected:
+                bool init();
         };
     }
 }

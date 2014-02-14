@@ -3,6 +3,7 @@
 
 #include "../app.h"
 #include "SDL/SDL.h"
+#include "SDL/SDL_ttf.h"
 
 namespace st {
     namespace _app {
