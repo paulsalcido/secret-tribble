@@ -32,6 +32,9 @@ void st::_app::lesson8::run() {
 bool st::_app::lesson8::init_text() {
     if ( ! is_font_loaded() ) init_font();
     m_upmessage = TTF_RenderText_Solid( font(), "Up was pressed", textcolor() );
+    m_upmessage = TTF_RenderText_Solid( font(), "Down was pressed", textcolor() );
+    m_upmessage = TTF_RenderText_Solid( font(), "Left was pressed", textcolor() );
+    m_upmessage = TTF_RenderText_Solid( font(), "Right was pressed", textcolor() );
 }
 
 bool st::_app::lesson8::is_font_loaded() {

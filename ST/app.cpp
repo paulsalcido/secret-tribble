@@ -4,6 +4,7 @@
 // TODO: Make this more flexible base on CMake initial
 // assumptions.  Too lazy.
 #include "_app/sdl.h"
+#include "_app/sdl_poll.h"
 #include "_app/lesson2.h"
 #include "_app/lesson3.h"
 #include "_app/lesson4.h"
@@ -24,6 +25,8 @@ st::app* st::app::build_app ( std::string name ) {
     /* TODO: Yeah, yeah, case to come. */
     if ( name == "sdl" ) {
         return new st::_app::sdl();
+    } else if ( name == "sdl_poll" ) {
+        return new st::_app::sdl_poll();
     } else if ( name == "lesson2" ) {
         return new st::_app::lesson2();
     } else if ( name == "lesson3" ) {
