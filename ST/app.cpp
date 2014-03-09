@@ -25,8 +25,6 @@ st::app* st::app::build_app ( std::string name ) {
     /* TODO: Yeah, yeah, case to come. */
     if ( name == "sdl" ) {
         return new st::_app::sdl();
-    } else if ( name == "sdl_poll" ) {
-        return new st::_app::sdl_poll();
     } else if ( name == "lesson2" ) {
         return new st::_app::lesson2();
     } else if ( name == "lesson3" ) {

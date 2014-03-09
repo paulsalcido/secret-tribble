@@ -13,6 +13,7 @@ namespace st {
                 void run();
             protected:
                 void start();
+                virtual void event_handler(SDL_Event*) = 0;
 
                 bool m_quit = false;
         };

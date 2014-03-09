@@ -67,6 +67,8 @@ namespace st {
 
                 // This will probably be a bad decision!
                 SDL_Surface* m_screen;
+
+                int m_current_width, m_current_height;
         };
     }
 }

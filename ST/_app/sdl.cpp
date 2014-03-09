@@ -22,6 +22,8 @@ bool st::_app::sdl::finish() {
 }
 
 bool st::_app::sdl::initialize_screen(std::string caption, int width, int height, int bpp) {
+    m_current_width = width;
+    m_current_height = height;
     m_screen = SDL_SetVideoMode(width, height, bpp, SDL_SWSURFACE );
     if ( m_screen == NULL ) {
         return false;

@@ -24,6 +24,8 @@ void st::_app::sdl_poll::start() {
         while ( SDL_PollEvent(&event) ) {
             if ( event.type == SDL_QUIT ) {
                 m_quit = true;
+            } else {
+                event_handler(&event);
             }
         }
     }
