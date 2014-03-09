@@ -1,9 +1,7 @@
 #include "_app/lesson7.h"
 #include <iostream>
 
-st::_app::lesson7::lesson7() {
-    init();
-}
+st::_app::lesson7::lesson7() { }
 
 st::_app::lesson7::~lesson7() { }
 
@@ -25,14 +23,4 @@ void st::_app::lesson7::run() {
 
     flip();
     delay();
-}
-
-bool st::_app::lesson7::init() {
-    return ( TTF_Init() == -1 );
-}
-
-TTF_Font* st::_app::lesson7::load_font(std::string name, int height) {
-    TTF_Font* tmp = TTF_OpenFont( media()->get_typeface_media_path(name).c_str(), height );
-    std::cerr << TTF_GetError() << std::endl;
-    return tmp;
 }

@@ -13,7 +13,7 @@ st::_app::sdl::~sdl() {
 }
 
 bool st::_app::sdl::init() {
-    return ( SDL_Init ( SDL_INIT_EVERYTHING ) != -1 );
+    return ( SDL_Init ( SDL_INIT_EVERYTHING ) != -1 && TTF_Init() != -1 );
 }
 
 bool st::_app::sdl::finish() {
@@ -22,6 +22,8 @@ bool st::_app::sdl::finish() {
 }
 
 bool st::_app::sdl::initialize_screen(std::string caption, int width, int height, int bpp) {
+    m_current_width = width;
+    m_current_height = height;
     m_screen = SDL_SetVideoMode(width, height, bpp, SDL_SWSURFACE );
     if ( m_screen == NULL ) {
         return false;
@@ -91,4 +93,10 @@ void st::_app::sdl::apply_surface_clip(int x, int y, SDL_Surface* source, SDL_Re
 
 void st::_app::sdl::delay( int del ) {
     SDL_Delay( del );
+}
+
+TTF_Font* st::_app::sdl::load_font(std::string name, int height) {
+    TTF_Font* tmp = TTF_OpenFont( media()->get_typeface_media_path(name).c_str(), height );
+    std::cerr << TTF_GetError() << std::endl;
+    return tmp;
 }
