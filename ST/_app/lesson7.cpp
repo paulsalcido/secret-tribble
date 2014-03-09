@@ -1,8 +1,9 @@
 #include "_app/lesson7.h"
+#include <iostream>
 
-#include "SDL/SDL_ttf.h"
-
-st::_app::lesson7::lesson7() { }
+st::_app::lesson7::lesson7() {
+    init();
+}
 
 st::_app::lesson7::~lesson7() { }
 
@@ -15,11 +16,23 @@ void st::_app::lesson7::run() {
 
     initialize_screen();
 
+    font = load_font("lazy.ttf",28);
+    message = TTF_RenderText_Solid(font, "The quick brown fox jumps over the lazy dog.", textColor);
+    background = load_image("background.png");
+
+    apply_surface(0, 0, background);
+    apply_surface(0, 150, message);
+
     flip();
     delay();
 }
 
 bool st::_app::lesson7::init() {
-    return ( st::_app::sdl::init() && 
-            TTF_Init() == -1 );
+    return ( TTF_Init() == -1 );
+}
+
+TTF_Font* st::_app::lesson7::load_font(std::string name, int height) {
+    TTF_Font* tmp = TTF_OpenFont( media()->get_typeface_media_path(name).c_str(), height );
+    std::cerr << TTF_GetError() << std::endl;
+    return tmp;
 }
