@@ -59,6 +59,7 @@ namespace st {
                 // done.
                 SDL_Surface* load_image(std::string name, bool optimize = true, sdl_color_map* color_map = NULL);
                 SDL_Surface* load_bitmap(std::string name, bool optimize = true, sdl_color_map* color_map = NULL);
+                TTF_Font* load_font(std::string name, int height);
             protected:
                 bool init();
                 bool finish();

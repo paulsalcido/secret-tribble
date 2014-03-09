@@ -1,11 +1,10 @@
-#include "_app/lesson7.h"
-#include <iostream>
+#include "_app/lesson8.h"
 
-st::_app::lesson7::lesson7() { }
+st::_app::lesson8::lesson8() { }
 
-st::_app::lesson7::~lesson7() { }
+st::_app::lesson8::~lesson8() { }
 
-void st::_app::lesson7::run() {
+void st::_app::lesson8::run() {
     SDL_Surface *background = NULL;
     SDL_Surface *message = NULL;
     
@@ -24,3 +23,4 @@ void st::_app::lesson7::run() {
     flip();
     delay();
 }
+
