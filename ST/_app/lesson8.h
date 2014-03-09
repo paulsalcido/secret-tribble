@@ -12,6 +12,24 @@ namespace st {
 
                 void run();
             protected:
+                bool init_text();
+                bool is_font_loaded();
+                bool init_font();
+
+                /* It would be far more reasonable to map all of
+                 * the text stuff, etc. to it's own class
+                 * TODO */
+                TTF_Font* font();
+                SDL_Color textcolor();
+
+                SDL_Surface *m_upmessage,
+                    *m_downmessage,
+                    *m_leftmessage,
+                    *m_rightmessage;
+
+                TTF_Font* m_font;
+
+                SDL_Color m_textcolor = { 255, 255, 255 };
         };
     }
 }
