@@ -12,6 +12,7 @@
 #include "_app/lesson6.h"
 #include "_app/lesson7.h"
 #include "_app/lesson8.h"
+#include "_app/lesson9.h"
 
 st::app::app() { 
     m_st_media = new st::media();
@@ -39,6 +40,8 @@ st::app* st::app::build_app ( std::string name ) {
         return new st::_app::lesson7();
     } else if ( name == "lesson8" ) {
         return new st::_app::lesson8();
+    } else if ( name == "lesson9" ) {
+        return new st::_app::lesson9();
     }
     return NULL;
 }
