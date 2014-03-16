@@ -12,8 +12,18 @@ namespace st {
                 ~lesson10();
 
                 void run();
+                TTF_Font* font();
+                SDL_Color textcolor();
             protected:
                 void event_handler(SDL_Event*);
+
+                SDL_Surface*    m_background;
+                TTF_Font*       m_font;
+                SDL_Surface     *m_upmessage,
+                                *m_downmessage,
+                                *m_rightmessage,
+                                *m_leftmessage;
+                SDL_Color m_textcolor = { 255, 255, 255 };
         };
     }
 }
