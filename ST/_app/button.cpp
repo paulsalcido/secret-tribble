@@ -22,6 +22,7 @@ st::_app::button::~button() {
 void st::_app::button::handle_events(SDL_Event* event) {
     if      ( event->type == SDL_MOUSEMOTION )       handle_motion(event);
     else if ( event->type == SDL_MOUSEBUTTONDOWN )   handle_buttondown(event);
+    else if ( event->type == SDL_MOUSEBUTTONUP )     handle_buttonup(event);
 }
 
 void st::_app::button::handle_motion(SDL_Event* event) {
@@ -43,6 +44,16 @@ void st::_app::button::handle_buttondown(SDL_Event* event) {
 
     if ( is_in_box(x,y) ) {
         clip = &clips[ST_APP_MOUSEDOWN_CLIP];
+    }
+}
+
+void st::_app::button::handle_buttonup(SDL_Event* event) {
+    int x, y;
+    x = event->motion.x;
+    y = event->motion.y;
+
+    if ( is_in_box(x,y) ) {
+        clip = &clips[ST_APP_MOUSEOVER_CLIP];
     }
 }
 

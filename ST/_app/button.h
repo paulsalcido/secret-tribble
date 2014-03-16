@@ -23,6 +23,7 @@ namespace st {
             protected:
                 void handle_motion(SDL_Event*);
                 void handle_buttondown(SDL_Event*);
+                void handle_buttonup(SDL_Event*);
             private:
                 SDL_Surface* m_buttons = NULL;
                 SDL_Rect box;

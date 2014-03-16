@@ -29,5 +29,8 @@ void st::_app::lesson9::clear_screen() {
             SDL_MapRGB( m_screen->format, 0xFF, 0xFF, 0xFF ) );
 }
 
-void st::_app::lesson9::event_handler(SDL_Event*) {
+void st::_app::lesson9::event_handler(SDL_Event* event) {
+    m_button->handle_events(event);
+    m_button->show(this);
+    flip();
 }
