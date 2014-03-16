@@ -26,6 +26,8 @@ void st::_app::lesson8::run() {
 
     apply_surface(0, 0, m_background);
 
+    flip();
+
     start();
 }
 
