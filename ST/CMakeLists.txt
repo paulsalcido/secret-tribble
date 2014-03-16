@@ -17,8 +17,9 @@ add_library(ST
     _app/lesson8.cpp
     _app/lesson9.cpp
     _app/lesson10.cpp
+    _app/lesson11.cpp
     _app/button.cpp
     _app/sdl_poll.cpp
     media.cpp)
 
-target_link_libraries(ST ${SDL_LIBRARIES} SDL_image SDL_ttf)
+target_link_libraries(ST ${SDL_LIBRARIES} SDL_image SDL_ttf SDL_mixer)
