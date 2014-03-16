@@ -12,6 +12,21 @@ void st::_app::lesson11::run() {
 
     apply_surface(0,0,m_background);
 
+    apply_surface(
+            ( m_current_width - m_effect_message->w )  / 2,
+            ( m_current_height - m_effect_message->h ) / 6,
+            m_effect_message);
+
+    apply_surface(
+            ( m_current_width - m_play_pause_message->w )  / 2,
+            ( m_current_height - m_play_pause_message->h ) / 2,
+            m_play_pause_message);
+
+    apply_surface(
+            ( m_current_width - m_stop_message->w )  / 2,
+            ( m_current_height - m_stop_message->h ) / 6 * 5,
+            m_stop_message);
+
     flip();
     start();
 }
