@@ -33,3 +33,10 @@ Starting with lesson three, I've also installed the following:
 * libsdl-mixer1.2-dev
 
 Oddly, turned out they were already installed...  Moving on.
+
+TODO's
+======
+
+* Change the mouse code in button to use SDL_GetMouseState.
+* When I actually start coding my own stuff, wrap up images so that it hides
+  SDL or any other libraries that I might be using.

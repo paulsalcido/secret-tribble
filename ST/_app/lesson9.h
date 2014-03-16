@@ -12,10 +12,11 @@ namespace st {
                 ~lesson9();
 
                 void run();
+                void clear_screen();
             protected:
                 void event_handler(SDL_Event*);
 
-                st::_app::button* m_button;
+                st::_app::button* m_button = NULL;
         };
     }
 }
