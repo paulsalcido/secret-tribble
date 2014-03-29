@@ -27,6 +27,10 @@ std::string st::media::get_image_media_path(std::string name) {
     return get_media_path("images/" + name);
 }
 
+std::string st::media::get_sound_media_path(std::string name) {
+    return get_media_path("sounds/" + name);
+}
+
 std::string st::media::get_typeface_media_path(std::string name) {
     return get_media_path("typefaces/" + name);
 }

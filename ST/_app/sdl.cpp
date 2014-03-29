@@ -17,6 +17,7 @@ bool st::_app::sdl::init() {
 }
 
 bool st::_app::sdl::finish() {
+    TTF_Quit();
     SDL_Quit();
     return true;
 }
@@ -99,4 +100,31 @@ TTF_Font* st::_app::sdl::load_font(std::string name, int height) {
     TTF_Font* tmp = TTF_OpenFont( media()->get_typeface_media_path(name).c_str(), height );
     std::cerr << TTF_GetError() << std::endl;
     return tmp;
+}
+
+bool st::_app::sdl::init_audio() {
+    return Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 ) != -1;
+}
+
+Mix_Music* st::_app::sdl::load_music(std::string name) {
+    return Mix_LoadMUS( media()->get_sound_media_path(name).c_str() );
+}
+
+Mix_Chunk* st::_app::sdl::load_sound_chunk(std::string name) {
+    return Mix_LoadWAV( media()->get_sound_media_path(name).c_str() );
+}
+
+void st::_app::sdl::free_media( TTF_Font *&font ) {
+    if ( font != NULL ) TTF_CloseFont( font );
+    font = NULL;
+}
+
+void st::_app::sdl::free_media( Mix_Chunk *&chunk ) {
+    if ( chunk != NULL ) Mix_FreeChunk( chunk );
+    chunk = NULL;
+}
+
+void st::_app::sdl::free_media( Mix_Music *&music ) {
+    if ( music != NULL ) Mix_FreeMusic( music );
+    music = NULL;
 }
