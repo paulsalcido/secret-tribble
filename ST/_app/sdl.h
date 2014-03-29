@@ -4,6 +4,7 @@
 #include "../app.h"
 #include "SDL/SDL.h"
 #include "SDL/SDL_ttf.h"
+#include "SDL/SDL_mixer.h"
 
 namespace st {
     namespace _app {
@@ -59,10 +60,17 @@ namespace st {
                 // done.
                 SDL_Surface* load_image(std::string name, bool optimize = true, sdl_color_map* color_map = NULL);
                 SDL_Surface* load_bitmap(std::string name, bool optimize = true, sdl_color_map* color_map = NULL);
-                TTF_Font* load_font(std::string name, int height);
+                Mix_Music *load_music(std::string name);
+                Mix_Chunk *load_sound_chunk(std::string name);
+                TTF_Font *load_font(std::string name, int height);
+
+                void free_media( Mix_Chunk*& );
+                void free_media( Mix_Music*& );
+                void free_media( TTF_Font*& );
             protected:
                 bool init();
                 bool finish();
+                bool init_audio();
                 SDL_Surface* _load_image(std::string name, bool optimize, bool sdl_image, sdl_color_map*);
 
                 // This will probably be a bad decision!

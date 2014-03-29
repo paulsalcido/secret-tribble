@@ -13,6 +13,7 @@ namespace st {
                 void run();
             protected:
                 void event_handler(SDL_Event*);
+                void init_sounds();
                 void init_messages();
                 TTF_Font* font();
                 SDL_Color textcolor();
@@ -25,7 +26,14 @@ namespace st {
 
                 SDL_Color       m_color = { 0xFF, 0xFF, 0xFF };
 
-                TTF_Font*       m_font;
+                TTF_Font        *m_font;
+
+                Mix_Music       *m_music;
+
+                Mix_Chunk       *m_scratch,
+                                *m_high,
+                                *m_medium,
+                                *m_low;
         };
     }
 }

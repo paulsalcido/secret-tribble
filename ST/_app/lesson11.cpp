@@ -1,14 +1,30 @@
 #include "_app/lesson11.h"
 
-st::_app::lesson11::lesson11() { }
-st::_app::lesson11::~lesson11() { }
+st::_app::lesson11::lesson11() {
+    m_music = NULL;
+    m_scratch = NULL;
+    m_high = NULL;
+    m_medium = NULL;
+    m_low = NULL;
+}
+
+st::_app::lesson11::~lesson11() {
+    free_media(m_music);
+    free_media(m_scratch);
+    free_media(m_high);
+    free_media(m_medium);
+    free_media(m_low);
+}
 
 void st::_app::lesson11::run() {
-    initialize_screen();
+    initialize_screen("Monitor Music");
 
     m_font = load_font("lazy.ttf",28);
     m_background = load_image("keystates-background.png");
     init_messages();
+    init_audio();
+
+    init_sounds();
 
     apply_surface(0,0,m_background);
 
@@ -32,6 +48,7 @@ void st::_app::lesson11::run() {
 }
 
 void st::_app::lesson11::event_handler(SDL_Event* event) {
+
 }
 
 void st::_app::lesson11::init_messages() {
@@ -55,4 +72,12 @@ SDL_Color st::_app::lesson11::textcolor() {
 
 TTF_Font* st::_app::lesson11::font() {
     return m_font;
+}
+
+void st::_app::lesson11::init_sounds() {
+    m_music     = load_music( "beat.wav" );
+    m_scratch   = load_sound_chunk( "scratch.wav" );
+    m_medium    = load_sound_chunk( "medium.wav" );
+    m_low       = load_sound_chunk( "low.wav" );
+    m_high      = load_sound_chunk( "high.wav" );
 }
