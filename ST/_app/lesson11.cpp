@@ -47,9 +47,45 @@ void st::_app::lesson11::run() {
     start();
 }
 
-void st::_app::lesson11::event_handler(SDL_Event* event) {
+#define __check_sound__(keynum, sound_name) \
+    if ( event->key.keysym.sym == keynum ) \
+    { \
+        if ( Mix_PlayChannel( -1, sound_name, 0 ) == -1 ) return; \
+    }
 
+void st::_app::lesson11::event_handler(SDL_Event* event) {
+    if ( event->type == SDL_KEYDOWN )
+    {
+        __check_sound__(SDLK_1,m_scratch)
+        else __check_sound__(SDLK_2,m_high)
+        else __check_sound__(SDLK_3,m_medium)
+        else __check_sound__(SDLK_4,m_low)
+        else if ( event->key.keysym.sym == SDLK_9 )
+        {
+            if ( Mix_PlayingMusic() == 0 )
+            {
+                if ( Mix_PlayMusic( m_music, -1 ) == -1 ) return;
+            }
+            else
+            {
+                if ( Mix_PausedMusic() == 1 )
+                {
+                    Mix_ResumeMusic();
+                }
+                else
+                {
+                    Mix_PauseMusic();
+                }
+            }
+        }
+        else if ( event->key.keysym.sym == SDLK_0 )
+        {
+            Mix_HaltMusic();
+        }
+    }
 }
+
+#undef __check_sound__
 
 void st::_app::lesson11::init_messages() {
     m_effect_message =
